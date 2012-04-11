@@ -11,7 +11,7 @@ var images = $.map(
         });
 
 
-$(document).load(function() {
+$(document).ready(function() {
     var imageIndex = Math.floor(4 * Math.random());
     $('.welcome-message').prepend('<div id="chuck"><img id="chuckImage"/><div id="chuck-norris-facts"></div></div>');
     $('#chuckImage').attr('src', images[imageIndex]);
