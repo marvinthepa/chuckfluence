@@ -4,7 +4,7 @@
  * @context atl.general
  */
 var $ = require('speakeasy/jquery').jQuery,
-    encoder = require('./encoder'),
+    encoder = require('./encoder').encoder,
     images = $.map(
         [ 'alert.jpg', 'bad_ass.jpg', 'thumb_up.jpg' ],
         function(img) {
@@ -24,7 +24,7 @@ $(document).ready(function() {
             url: 'http://api.icndb.com/jokes/random',
             success: function(data) {
                 if (data.type === 'success') {
-                    $('#chuck-norris-facts').text(data.value.joke.replace(/&quot;/g, '"'));
+                    $('#chuck-norris-facts').text(encoder.htmlDecode(data.value.joke));
                 }
 
             }
