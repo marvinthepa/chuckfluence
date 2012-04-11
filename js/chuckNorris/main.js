@@ -4,20 +4,29 @@
  * @context atl.general
  */
 var $ = require('speakeasy/jquery').jQuery;
-var img = require('speakeasy/resources').getImageUrl(module, 'projectavatar.png'); // TODO
+var images = $.map(
+        [ 'alert.jpg', 'bad_ass.jpg', 'thumb_up.jpg' ],
+        function(idx, img) {
+            require('speakeasy/resources').getImageUrl(module, img);
+        });
+
 
 $(document).ready(function() {
-    $('.welcome-message').prepend('<div id="chuck-norris-facts"></div>');
+    var imageIndex = 0;
+    $('.welcome-message').prepend('<div id="chuck"><img id="chuckImage"/><div id="chuck-norris-facts"></div></div>');
 
-    $.ajax({
-        url: 'http://api.icndb.com/jokes/random',
-        success: function(data) {
-            var joke = JSON.parse(data);
+    $('#chuck').bind('click', function() {
+        $.ajax({
+            url: 'http://api.icndb.com/jokes/random',
+            success: function(data) {
+                var joke = JSON.parse(data);
 
-            if (joke.type === 'success') {
-                $('#chuck-norris-facts').html(joke.value.joke);
+                if (joke.type === 'success') {
+                    $('#chuck-norris-facts').html(joke.value.joke);
+                }
+                $('#chuckImage').attr('src', images[imageIndex]);
+                imageIndex = (imageIndex + 1) / 3;
             }
-        }
-    });
-
+        });
+    }).trigger('click');
 });
