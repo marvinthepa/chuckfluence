@@ -1,4 +1,10 @@
 /**
+* encoder module
+*
+* @context atl.general
+*/
+
+/**
  * A Javascript object to encode and/or decode html characters using HTML or Numeric entities that handles double or partial encoding
  * Author: R Reid
  * source: http://www.strictly-software.com/htmlencode
