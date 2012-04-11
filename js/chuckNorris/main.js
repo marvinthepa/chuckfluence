@@ -23,10 +23,9 @@ $(document).ready(function() {
             dataType: 'json',
             url: 'http://api.icndb.com/jokes/random',
             success: function(data) {
-                if (data.type === 'success') {
+                if (data && data.type === 'success') {
                     $('#chuck-norris-facts').text(encoder.htmlDecode(data.value.joke));
                 }
-
             }
         });
     });
