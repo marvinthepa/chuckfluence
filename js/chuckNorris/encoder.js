@@ -239,4 +239,6 @@ Encoder = {
 		return -1;
 	}
 
-}
+};
+
+exports.encoder = Encoder;
