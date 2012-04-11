@@ -13,7 +13,7 @@ var $ = require('speakeasy/jquery').jQuery,
 
 
 $(document).ready(function() {
-    var imageIndex = Math.floor(4 * Math.random());
+    var imageIndex = Math.floor((images.length + 1) * Math.random());
     $('.welcome-message').prepend('<div id="chuck"><img id="chuckImage"/><div id="chuck-norris-facts"></div></div>');
     
     $('#chuckImage').attr('src', images[imageIndex]);
