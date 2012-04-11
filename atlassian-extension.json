@@ -1,0 +1,13 @@
+{
+	"key": 			"chuckNorris",
+	"name":			"Chuck Norris Facts",
+	"description":	"Display Chuck Norris Facts on the Dashboard",
+	"version":		"1",
+	
+	"vendor": {	"name": "Joe",
+			     "url": "http://example.com/extension-homepage.html",
+		       "email": "jane@example.com" },
+
+    "screenshot":   "screenshot.png",
+    "permissions":  []
+}
