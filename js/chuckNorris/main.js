@@ -14,9 +14,10 @@ var images = $.map(
 $(document).ready(function() {
     var imageIndex = Math.floor(4 * Math.random());
     $('.welcome-message').prepend('<div id="chuck"><img id="chuckImage"/><div id="chuck-norris-facts"></div></div>');
+    
     $('#chuckImage').attr('src', images[imageIndex]);
-
-    $('#chuck').bind('click', function() {
+  
+    $('#chuckImage').load(function() {
         $.ajax({
             url: 'http://api.icndb.com/jokes/random',
             success: function(data) {
@@ -25,9 +26,14 @@ $(document).ready(function() {
                 if (joke.type === 'success') {
                     $('#chuck-norris-facts').html(joke.value.joke);
                 }
-                imageIndex = (imageIndex + 1) % images.length;
-                $('#chuckImage').attr('src', images[imageIndex]);
+
             }
         });
+    });
+
+    $('#chuck').bind('click', function() {
+        imageIndex = (imageIndex + 1) % images.length;
+        $('#chuckImage').attr('src', images[imageIndex]);
+        
     }).trigger('click');
 });
