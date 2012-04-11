@@ -25,7 +25,7 @@ $(document).ready(function() {
                     $('#chuck-norris-facts').html(joke.value.joke);
                 }
                 $('#chuckImage').attr('src', images[imageIndex]);
-                imageIndex = (imageIndex + 1) / 3;
+                imageIndex = (imageIndex + 1) % 3;
             }
         });
     }).trigger('click');
