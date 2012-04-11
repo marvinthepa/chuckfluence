@@ -19,12 +19,11 @@ $(document).ready(function() {
   
     $('#chuckImage').load(function() {
         $.ajax({
+            dataType: 'json',
             url: 'http://api.icndb.com/jokes/random',
             success: function(data) {
-                var joke = JSON.parse(data);
-
-                if (joke.type === 'success') {
-                    $('#chuck-norris-facts').html(joke.value.joke);
+                if (data.type === 'success') {
+                    $('#chuck-norris-facts').html(data.value.joke);
                 }
 
             }
