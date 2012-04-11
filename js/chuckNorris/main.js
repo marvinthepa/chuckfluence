@@ -7,7 +7,7 @@ var $ = require('speakeasy/jquery').jQuery;
 var images = $.map(
         [ 'alert.jpg', 'bad_ass.jpg', 'thumb_up.jpg' ],
         function(img) {
-            require('speakeasy/resources').getImageUrl(module, img);
+            return require('speakeasy/resources').getImageUrl(module, img);
         });
 
 
