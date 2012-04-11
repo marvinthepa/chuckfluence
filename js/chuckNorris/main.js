@@ -23,7 +23,7 @@ $(document).ready(function() {
             url: 'http://api.icndb.com/jokes/random',
             success: function(data) {
                 if (data.type === 'success') {
-                    $('#chuck-norris-facts').html(data.value.joke);
+                    $('#chuck-norris-facts').text(data.value.joke.replace(/&quot;/, '"'));
                 }
 
             }
